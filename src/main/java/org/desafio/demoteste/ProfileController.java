@@ -2,6 +2,7 @@ package org.desafio.demoteste;
 
 import Presences.TokenManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -18,11 +19,11 @@ import java.io.UnsupportedEncodingException;
 
 public class ProfileController {
     @FXML
-    private TextField email;
+    private Label email;
     @FXML
-    private TextField name;
+    private Label name;
     @FXML
-    private TextField id;
+    private Label id;
 
     @FXML
     public void initialize() {
@@ -34,8 +35,9 @@ public class ProfileController {
 //        responseBody.put("name", name);
 //        responseBody.put("id", id);
         try (CloseableHttpClient httpClient = HttpClients.createDefault()){
-            HttpGet httpGet = new HttpGet("http://localhost:8080/profile"); //Passar
+            HttpGet httpGet = new HttpGet("http://192.168.0.109:8080/api/register/profile-data"); //Passar
             httpGet.setHeader("Authorization", "Bearer " + TokenManager.getToken());
+            httpGet.getMethod();
             HttpResponse response = httpClient.execute(httpGet);
             HttpEntity entity = response.getEntity();
             if (entity != null) {

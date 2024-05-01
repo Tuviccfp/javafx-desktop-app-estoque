@@ -10,5 +10,11 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.desafio.demoteste.ProfileController"
             prefHeight="400.0" prefWidth="600.0">
-
+    <BorderPane>
+        <left>
+            <Label fx:id="email" styleClass=""/>
+            <Label fx:id="name" styleClass=""/>
+            <Label fx:id="id" styleClass=""/>
+        </left>
+    </BorderPane>
 </AnchorPane>
